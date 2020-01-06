@@ -1,7 +1,6 @@
 /* eslint func-names: 0 */
 import loaderUtils from 'loader-utils';
 import processModules from './utils/processModules';
-import getFontsPath from './utils/getFontsPath';
 import createUserImport from './utils/createUserImport';
 import createBootstrapImport from './utils/createBootstrapImport';
 import logger from './utils/logger';
@@ -44,7 +43,7 @@ module.exports = function() {
   processedStyles.push(createBootstrapImport('variables', bootstrapVersion, bootstrapRelPath));
 
   if (bootstrapVersion === 3 && !useCustomIconFontPath) {
-    processedStyles.push(`$icon-font-path: "${getFontsPath(bootstrapRelPath, this)}";`);
+    processedStyles.push(`$icon-font-path: "../../fonts/bootstrap/";`);
   }
 
   if (bootstrapCustomizations) {
